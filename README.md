@@ -1,3 +1,9 @@
+# Arkanoid
+
+Arkanoid is my take on the classic Nintendo Breakout game.
+
+![Arkanoid Screenshot](/arkanoid.jpg?raw=true "Arkanoid Screenshot")
+
 TO RUN THIS ON A MAC: Run Boxer.app (a DOS emulator), import the Arkanoid directory as a game, and then run arka.exe.
 
 Arkanoid - by Philip Brocoum circa 1998
@@ -37,9 +43,6 @@ The arka.exe file is the executable to run the game.
 The arka.c file is the source code.  check it out to see how the game works.
 The arka.o is the object file if you want to link it to something for some reason.
 The readme.txt file is what you are reading now.
-
-
-
 
 There are many bugs in the game.  When you play the game you will notice that the collision detection is very rudimentary.  But I still think it's a fairly enjoyable game =)
 
