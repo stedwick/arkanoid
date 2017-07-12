@@ -1,0 +1,179 @@
+------------------------------------------------------------------------------
+                    Mobile Rage Beta 1.2 releasenotes
+------------------------------------------------------------------------------
+
+What's a beta-version?
+----------------------
+Well, it's a version of a game that the people making the game 
+releases to give people an idea of what the game will be like. 
+It can also be sent to big companies who publish software.
+If they like it they might publish it, and it will be able to buy it
+in software stores and so on.
+That's of course our goal, to get it published.
+
+System requirements
+-------------------
+IBM PC or 100% compatible
+Pentium processor or equal
+4 meg RAM
+VGA graphics card and monitor
+Keyboard
+
+Playing the game
+----------------
+The default controls are:
+
+Accelerate: 		up arrow
+backwards: 		down arrow
+Steer left: 		left arrow
+Steer right:		right arrow
+Boost:			C
+Fire missiles:		Space
+Respot car:		Control
+Handbrake:		B
+
+This controls CAN be changed in the main menu (options/redefine keys).
+
+More in-game-keys are:
+
+Move camera up:         W
+Move camera down:       Q
+Point camera up: 	A
+Point camera down:	Z
+Zoom in:		S
+Zoom out:		X
+Brightnes +:		R
+Brightness -:		E
+
+View next car           F1
+
+Toggle motionblur:      F2
+
+Lock camera:            F3
+Unlock camera:	        F4
+
+Wireframe:		F5
+Flat:			F6
+Texturemapped:		F9
+Texture +Fog:		F8
+Perpective tex +Fog:	F9
+Tex. Shaded +Fog:	F10
+
+VGA:			F11
+Higher Resulotion:	F12
+
+FPS-test toggle:	P
+Draw all frames toggle:	O
+
+Fullscreen		1
+Widescreen		2
+Highscreen		3
+Smallscreen		4
+
+In car camera		5
+Back camera		6
+Helicam 		7
+
+Exit game:		Escape
+
+
+Who's responisble for this ?
+----------------------------
+
+So, who are the brains behind this masterpiece?
+Here they are, in alphabetical order:
+
+ Martin Eklund (TD)    - Project leader
+                         Programming (C++/asm) 
+                         Developing utilities 
+                         3D-engine 
+                         Physics
+                         3D-modelling / Graphics                        
+                         Music 
+
+ Martin Gunnarsson (S) - 3D-modelling / Graphics 
+                         Palette
+                         Website
+
+ Jonas Kylander (TD)   - 3D-modelling / Graphics 
+
+ Emil Segerås (TD)     - Programming (C++)
+                         Developing utilities
+                         Physics 
+
+(TD) = Member of Technological Dimensions.
+(S) = Member of Snarl-up Software.
+
+Speed - System requirements
+---------------------------
+
+When we started making Mobile Rage, we wanted to make a really FAST game.
+Mobile Rage was supposed to run ok. on a 486:a...But as we went along,
+the game become slower and slower... (so much for particles with shadow)
+
+The Setting 
+-----------
+
+The setting is pretty unimportant in this beta version, the clans are
+still under construction. Anyway, here it is :
+
+   Mobile Rage is set in the future. There's
+   been a huge nuclear war (World War
+   III) that completely ruined
+   everything...almost. Some people
+   survived the war though, and lot's of
+   them live in clans. That gives them a
+   bigger chance to protect their territory,
+   property and resources against other
+   clans, and outlaws. Wars between the
+   clans are quite common, but sometimes
+   it's better to solve conflicts in a peaceful
+   way. A peaceful way nowadays means
+   a duel, and we're not talking about no gunfights
+   here. No no, we're talking about racing!
+   Racing with heavily armed cars. Almost
+   all clans have their own champion, a
+   highly respected roadwarrior who has
+   won lot's of duels through the years.
+   Money has no value these days. Why
+   would you want a piece of metal or
+   paper? You can't eat it. You can't run a
+   car on it. It's useless. If you need a new
+   machinegun you trade it against...well,
+   maybe a carburettor and some barrels of gas. 
+
+What is this vga-crap?! Where is the 3Dfx version ?
+---------------------------------------------------
+
+Beta 2 Will support 3dfx via Glide.
+
+Where is the sound ?
+--------------------
+
+Also coming in beta 2.
+
+Where can I read more about Mobile Rage
+---------------------------------------
+
+Read about us and how we developed this game - in detail, or,
+check for a new beta version at the Mobile Rage official homepage:
+
+www.filetransit.com/mrage
+
+Legal Stuff
+-----------
+Mobile Rage BETA 1.2 is protected FREEWARE, you may copy/distribute it, as long as
+the zip-file stays intact. Mobile Rage BETA 1.2 is protected by law.
+You may NOT copy/distribute selected parts of it in any way.
+RUN THIS GAME IS STRICTLY AT YOUR OWN RISK!  THE AUTHORS ASSUMES NO
+RESPONSIBILITY FOR TIME, MONEY, AND/OR EQUIPMENT LOST DUE TO THE USE
+OF THIS GAME.
+
+-------------------------------------------------------------------------------
+Again, we hope you will enjoy this game.
+
+Martin Eklund     (tech@hem1.passagen.se)
+Martin Gunnarson  (martin.gunnarsson@mbox331.swipnet.se)
+
+/Peace.
+-------------------------------------------------------------------------------
