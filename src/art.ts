@@ -1,8 +1,8 @@
-import backgroundUrl from "../BACKG.BMP?url";
-import ballUrl from "../BALL.BMP?url";
-import blockUrl from "../BLOCK.BMP?url";
-import capsuleUrl from "../CAPSULE.BMP?url";
-import paddleUrl from "../PADDLE.BMP?url";
+import backgroundUrl from "./assets/BACKG.BMP?url";
+import ballUrl from "./assets/BALL.BMP?url";
+import blockUrl from "./assets/BLOCK.BMP?url";
+import capsuleUrl from "./assets/CAPSULE.BMP?url";
+import paddleUrl from "./assets/PADDLE.BMP?url";
 import { HEIGHT, PADDLE_WIDTH, PADDLE_Y, brickX, brickY, type Game } from "./game";
 
 interface Bitmap {
