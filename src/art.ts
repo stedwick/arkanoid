@@ -89,8 +89,9 @@ export async function createRenderer(canvas: HTMLCanvasElement) {
       context.fillStyle = "#ffe75d";
       context.fillRect(x + game.paddleWidth / 2, game.laserY, 1, PADDLE_Y - game.laserY);
     }
-    context.drawImage(sprites.paddle, x, PADDLE_Y);
-    if (game.paddleWidth > PADDLE_WIDTH) context.drawImage(sprites.paddle, x + PADDLE_WIDTH, PADDLE_Y);
+    for (let offset = 0; offset < game.paddleWidth; offset += PADDLE_WIDTH) {
+      context.drawImage(sprites.paddle, x + offset, PADDLE_Y);
+    }
     if (game.capsule) context.drawImage(sprites.capsule, Math.round(game.capsule.x), game.capsule.y);
     context.drawImage(sprites.ball, Math.round(game.ball.x), Math.round(game.ball.y));
 

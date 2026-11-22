@@ -48,6 +48,7 @@ async function start() {
   let game = createGame();
   let queuedAction = false;
   let queuedQuit = false;
+  let queuedDirection = 0;
   let mouseDown = false;
   let pointerX: number | undefined;
   let audio: AudioContext | undefined;
@@ -84,14 +85,21 @@ async function start() {
     if (!["ArrowLeft", "ArrowRight", "Space", "KeyX"].includes(event.code)) return;
     event.preventDefault();
     keys.add(event.code);
-    if (event.code === "Space" && !event.repeat) action();
-    if (event.code === "KeyX" && !event.repeat) queuedQuit = true;
+    if (event.repeat) return;
+    if (event.code === "ArrowLeft") queuedDirection = -1;
+    if (event.code === "ArrowRight") queuedDirection = 1;
+    if (event.code === "Space") action();
+    if (event.code === "KeyX") queuedQuit = true;
   });
   canvas.addEventListener("keyup", (event) => keys.delete(event.code));
-  canvas.addEventListener("blur", () => keys.clear());
+  canvas.addEventListener("blur", () => {
+    keys.clear();
+    queuedDirection = 0;
+  });
   window.addEventListener("blur", () => {
     keys.clear();
     mouseDown = false;
+    queuedDirection = 0;
   });
 
   let previousTime = performance.now();
@@ -106,7 +114,9 @@ async function start() {
     previousTime = time;
     const previous = game;
     while (elapsed >= TICK_MS) {
-      const direction = Number(keys.has("ArrowRight")) - Number(keys.has("ArrowLeft"));
+      const left = keys.has("ArrowLeft");
+      const right = keys.has("ArrowRight");
+      const direction = left || right ? Number(right) - Number(left) : queuedDirection;
       game = stepGame(game, {
         paddleX: direction ? game.paddleX + direction * 6 : pointerX,
         action: queuedAction,
@@ -116,6 +126,7 @@ async function start() {
       pointerX = undefined;
       queuedAction = false;
       queuedQuit = false;
+      queuedDirection = 0;
       if (game.tone && game.phase !== "demo") playTone(audio, game.tone);
       elapsed -= TICK_MS;
     }

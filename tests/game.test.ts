@@ -5,9 +5,8 @@ function playing(): Game {
   return stepGame(createGame(), { action: true });
 }
 
-function catchCapsule(power: Power): Game {
-  const game = playing();
-  return stepGame({ ...game, capsule: { x: 140, y: 190, power } }, {});
+function catchCapsule(power: Power, game = playing()): Game {
+  return stepGame({ ...game, capsule: { x: game.paddleX, y: 190, power } }, {});
 }
 
 describe("a run", () => {
@@ -61,6 +60,13 @@ describe("ball collisions", () => {
     expect(hit.ball.vy).toBe(-5);
     expect(hit.lives).toBe(5);
   });
+
+  test("hitting the side of a brick reverses horizontal travel", () => {
+    const game = playing();
+    const bricks = game.bricks.map((exists, index) => index === 0 ? false : exists);
+    const hit = stepGame({ ...game, bricks, ball: { x: 16, y: 20, vx: 4, vy: 0 } }, {});
+    expect([hit.score, hit.bricks[1], hit.bricks[2], hit.ball.vx, hit.ball.vy]).toEqual([7, false, true, -4, 0]);
+  });
 });
 
 describe("capsules", () => {
@@ -69,6 +75,12 @@ describe("capsules", () => {
     const dropped = stepGame({ ...game, ball: { x: 20, y: 46, vx: 0, vy: -5 } }, {}, [0.05, 0]);
     expect(dropped.capsule?.power).toBe("Teleport");
     expect(stepGame({ ...dropped, capsule: { x: 20, y: 199, power: "Teleport" } }, {}).capsule).toBeNull();
+  });
+
+  test("later drops use the random power-up roll", () => {
+    const game = { ...playing(), firstCapsule: false, ball: { x: 20, y: 46, vx: 0, vy: -5 } };
+    expect(stepGame(game, {}, [0.05, 0.25]).capsule?.power).toBe("Lasers");
+    expect(stepGame(game, {}, [0.05, 0.99]).capsule?.power).toBe("Teleport");
   });
 
   test("awards the catch score and applies the five immediate effects", () => {
@@ -96,6 +108,15 @@ describe("capsules", () => {
     expect(long.paddleWidth).toBe(40);
     const expired = stepGame({ ...long, effect: { power: "Long Paddle", ticks: 1 } }, { paddleX: 320 });
     expect([expired.paddleWidth, expired.paddleX]).toEqual([20, 300]);
+  });
+
+  test("immediate powers refresh a long paddle, and a second extension adds width", () => {
+    const long = catchCapsule("Long Paddle");
+    const scored = catchCapsule("More Score", { ...long, effect: { power: "Long Paddle", ticks: 31 } });
+    expect([scored.score, scored.paddleWidth, scored.effect?.ticks]).toEqual([1040, 40, 900]);
+    const wider = catchCapsule("Long Paddle", scored);
+    expect(wider.paddleWidth).toBe(60);
+    expect(catchCapsule("Lasers", wider).paddleWidth).toBe(20);
   });
 
   test("Lasers score one brick per tick from the lowest row in their path", () => {

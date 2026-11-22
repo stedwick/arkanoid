@@ -10,6 +10,7 @@ const BRICK_HEIGHT = 5;
 const COLUMNS = 30;
 const ROWS = 5;
 const BRICK_COUNT = COLUMNS * ROWS;
+const LONG_POWER_TICKS = 900;
 const POWERS = [
   "Sticky Paddle", "Fastball", "Lasers", "Ball Control", "More Score",
   "Long Paddle", "Extra Lives", "Warp", "Teleport",
@@ -217,21 +218,21 @@ function moveCapsule(game: Game): Game {
   const { power } = capsule;
   game.capsule = null;
   game.score += 20;
-  game.effect = null;
-  game.paddleWidth = PADDLE_WIDTH;
-  if (game.stuck) releaseBall(game);
+  game.effect = game.effect?.power === "Long Paddle"
+    ? { power: "Long Paddle", ticks: LONG_POWER_TICKS }
+    : null;
+  if (game.stuck && power !== "Sticky Paddle") releaseBall(game);
 
   switch (power) {
     case "Sticky Paddle":
-      game.effect = { power, ticks: 900 };
-      break;
     case "Lasers":
     case "Ball Control":
-      game.effect = { power, ticks: 300 };
+      game.paddleWidth = PADDLE_WIDTH;
+      game.effect = { power, ticks: power === "Sticky Paddle" ? LONG_POWER_TICKS : 300 };
       break;
     case "Long Paddle":
-      game.effect = { power, ticks: 900 };
-      game.paddleWidth = 2 * PADDLE_WIDTH;
+      game.effect = { power, ticks: LONG_POWER_TICKS };
+      game.paddleWidth = Math.min(WIDTH, game.paddleWidth + PADDLE_WIDTH);
       movePaddle(game, game.paddleX);
       break;
     case "Fastball":
