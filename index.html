@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#141018" />
+    <title>Arkanoid · Philip Brocoum</title>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <main class="arcade">
+      <header class="masthead">
+        <h1>ARKANOID</h1>
+        <p>Philip Brocoum · 1998</p>
+      </header>
+
+      <section class="cabinet" aria-label="Arkanoid game">
+        <dl class="scoreboard">
+          <div><dt>Score</dt><dd id="score">000000</dd></div>
+          <div><dt>Level</dt><dd id="level">01</dd></div>
+          <div><dt>Lives</dt><dd id="lives">05</dd></div>
+        </dl>
+
+        <div class="screen">
+          <canvas width="320" height="200" tabindex="0" aria-label="Arkanoid playfield" aria-describedby="controls"></canvas>
+          <div class="prompt" id="prompt">
+            <div class="prompt-card">
+              <p id="prompt-title" aria-live="polite">Loading game…</p>
+              <button id="play" type="button" hidden>Play</button>
+            </div>
+          </div>
+        </div>
+
+        <ul class="controls" id="controls">
+          <li><b>Move</b> Mouse or <kbd>←</kbd> <kbd>→</kbd></li>
+          <li><b>Launch / Fire</b> Click or <kbd>Space</kbd></li>
+          <li><b>Quit</b> <kbd>X</kbd></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

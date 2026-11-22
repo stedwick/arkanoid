@@ -4,7 +4,17 @@ Arkanoid is my take on the classic Nintendo Breakout game.
 
 ![Arkanoid Screenshot](/arkanoid.jpg?raw=true "Arkanoid Screenshot")
 
-TO RUN THIS ON A MAC: Run Boxer.app (a DOS emulator), import the Arkanoid directory as a game, and then run arka.exe.
+## Play in a browser
+
+Install Bun and Portless, then run `bun install` and `bun run dev`. Open the HTTPS address that Portless prints.
+
+Move with the mouse or arrow keys. Click or press Space to start, launch, or fire. Press X to return to the demo.
+
+Run `bun test` to check the game rules and `bun run build` to build the static game in `dist/`.
+
+## Original DOS version
+
+On a Mac, open Boxer.app, import the Arkanoid directory as a game, and run `arka.exe`.
 
 Arkanoid - by Philip Brocoum circa 1998
 
