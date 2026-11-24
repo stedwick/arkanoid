@@ -1,0 +1,14 @@
+{
+  "name": "arkanoid",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "PORTLESS_TLD=dev portless run vite",
+    "build": "tsc --noEmit && vite build --base=./",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}
